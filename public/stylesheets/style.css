@@ -1,8 +1,32 @@
+@font-face {
+  font-family: Beholder;
+  src: url('/fonts/beholder.ttf');
+}
+
+@font-face {
+  font-family: Valiant;
+  src: url('/fonts/prince_valiant.ttf');
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+h1 {
+  font: bold 2em 'Beholder', Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+h2 {
+  font: bold 1.7em 'Valiant', Helvetica, Arial, sans-serif;
+}
+
+/* Navbar */
+nav {
+  background-color: #2D033B;
+  color: gold;
+}
+
+.navbar-brand img {
+  height: 2em;
 }

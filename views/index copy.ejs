@@ -2,25 +2,24 @@
 <html lang="pt-br">
 <head>
   <title><%= title %></title>
-  <%- include('./partials/head'); %>
+  <%- include('../partials/head'); %>
 </head>
-<body >
+<body class="container">
 
 <header>
-  <%- include('./partials/navbar'); %>
+  <%- include('../partials/navbar'); %>
 </header>
 
 <main>
-  
+  <div class="jumbotron">
     <h1>This is great</h1>
     <p>Welcome to templating using EJS</p>
-  
+  </div>
 </main>
 
 <footer>
-  <%- include('./partials/footer'); %>
+  <%- include('../partials/footer'); %>
 </footer>
 
 </body>
-<%- include('./partials/scripts'); %>
 </html>

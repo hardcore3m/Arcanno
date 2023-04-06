@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <title><%= title %></title>
   <%- include('./partials/head'); %>
 </head>
-<body >
 
-<header>
-  <%- include('./partials/navbar'); %>
-</header>
+<body>
 
-<main>
-  
-    <h1>This is great</h1>
-    <p>Welcome to templating using EJS</p>
-  
-</main>
+  <header>
+    <%- include('./partials/navbar'); %>
+  </header>
 
-<footer>
-  <%- include('./partials/footer'); %>
-</footer>
+  <main>
+    <div id="main-menu">
+      <div><a href="/references"><img
+            src="https://media.discordapp.net/attachments/1091090710574407682/1093400673917337710/5e64942e-f67d-4e9c-93e3-8bef44b5d25a.jpg"
+            alt="">
+          <p>Referências</p>
+        </a></div>
+      <div><a href="/ephemerids"><img
+            src="https://media.discordapp.net/attachments/1091090710574407682/1093398917967782008/a143a565-1cd6-44a3-a331-f9f74cfbd800.jpg"
+            alt="">
+          <p>Efemérides Astrológicas</p>
+        </a></div>
+    </div>
+  </main>
+
+  <footer>
+    <%- include('./partials/footer'); %>
+  </footer>
 
 </body>
 <%- include('./partials/scripts'); %>
+
 </html>

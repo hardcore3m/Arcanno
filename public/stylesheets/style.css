@@ -9,78 +9,69 @@
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #2D033B;
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 1fr;
+  flex-direction: column;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  grid-template-rows: 10vh 80vh 10vh;
   height: 100vh;
-  background-color: #2D033B;
+  width: 100vh;
+  margin: 0;
 }
 
-header {
-  background-color: #333;
-  color: #fff;
-  position: fixed;
-  top: 0;
-  width: 100%;
-
-}
-
-header img {
-  height: 2em;
-}
-
-header nav{
-  justify-content: space-between;
-}
-
-nav {
-  background-color: #2D033B;
-  color: gold;
+header, footer {
   display: flex;
-  padding: .3em .3em 0 .3em;
+  flex-direction: row;
+  width: 100vw;
+  align-items: center;
+  align-content: center;
+  color: gold;
 }
 
-main {
-  grid-row: 2/3;
-  grid-column: 1/2;
-  padding: 1rem;
-}
-
-footer {
-  background-color: #ccc;
-  color: #333;
-  grid-row: 3/4;
-  grid-column: 1/2;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-
-}
-
-footer nav{
-  justify-content: space-evenly;
-}
-
-footer div {
-  text-align: center;
-}
-
-footer img {
-  height: 2em;
-}
-
-footer p {
-  font-size: 0.7em;
-  font-weight: 700;
-}
-
-footer a {
+header a, footer a {
   text-decoration: none;
   color: gold;
 }
 
+header img, footer img {
+  height: 7vh;
+  aspect-ratio: 1/1;
+}
 
+header p, footer p {
+font-size: 0.5em;
+}
+
+header{
+  justify-content: space-between;
+}
+
+footer{
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+  background-color: #2D033B;
+  padding: 1vh;
+}
+
+.nav-icon{
+  text-align: center;
+}
+
+main{
+  width: 100vw;
+  margin-bottom: 10vw;
+}
+
+main>div{
+  margin: 1vh 2vw;
+  border: gold solid 2px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 0.5em;
+  width: 96vw;
+  
+}
 
 
 
@@ -95,31 +86,9 @@ h2 {
   text-align: center;
 }
 
+/* Main pages */
 
-/* Table */
-
-table {
-  width: 95%;
-  padding: 1em;
-  margin: 0.25em 2.5%;
-  border: 2px solid #2D033B;
-}
-
-table th {
-  text-align: center;
-}
-
-/* List Cards */
-.book-card {
-  border: #2D033B 2px solid;
-  border-radius: 0.5em;
-  margin: 1em 2.5%;
-  text-align: center;
-  background: #3F3B6C;
-
-}
-
-.book-card a {
-  text-decoration: none;
-  color: wheat;
+/* Buttons */
+.btn-group{
+  font: bold 8px 'Valiant', Helvetica, Arial, sans-serif;
 }

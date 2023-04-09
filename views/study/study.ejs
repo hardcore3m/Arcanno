@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title><%= title %></title>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+
+  <header>
+    <%- include('../partials/navbar'); %>
+  </header>
+
+  <main>
+    <div>
+      <div class="btn-group" role="group" aria-label="study">
+        <button type="button" class="btn ">Referências</button>
+        <button type="button" class="btn ">Lições</button>
+        <button type="button" class="btn ">Consulta</button>
+      </div>
+      <div id="references"></div>
+    </div>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+</body>
+<%- include('../partials/scripts'); %>
+
+</html>

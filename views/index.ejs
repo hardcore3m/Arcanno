@@ -4,16 +4,22 @@
 <head>
   <title><%= title %></title>
   <%- include('./partials/head'); %>
+  <link rel="stylesheet" href="/stylesheets/ephemerid.css">
 </head>
-
-<body>
+<%- include('./partials/scripts'); %>
+<body onload="initPage()">
 
   <header>
     <%- include('./partials/navbar'); %>
   </header>
 
   <main>
-   
+    <div id="clock">
+
+    </div>
+    <div id="ephemerid">
+
+    </div>
   </main>
 
   <footer>
@@ -21,6 +27,7 @@
   </footer>
 
 </body>
-<%- include('./partials/scripts'); %>
+
+<script src="/javascripts/coordinateSettings.js"></script>
 
 </html>

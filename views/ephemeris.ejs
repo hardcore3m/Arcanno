@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title><%= title %></title>
+  <%- include('./partials/head'); %>
+</head>
+
+<body>
+
+  <header>
+    <%- include('./partials/navbar'); %>
+  </header>
+
+  <main>
+    <h3>Cálculo de Efemérides</h3>
+    <div>
+      <ol>
+        <li>Calcular o ângulo de obliquidade da eclíptica para a data e hora especificadas.</li>
+        <li>Calcular o número juliano para a data e hora especificadas.</li>
+        <li>Calcular o tempo sideral médio para o número juliano especificado.</li>
+        <li>Calcular o tempo sideral verdadeiro para o número juliano especificado, levando em conta a nutação e a
+          precessão.
+          <ol>
+            <li>Calcular o número de séculos julianos desde 2000.0.</li>
+            <li>Calcular a posição média do nó ascendente da lua.</li>
+            <li>Calcular a longitude média do sol.</li>
+            <li>Calcular a correção de nutação para longitude e obliquidade.</li>
+            <li>Calcular a longitude verdadeira do sol corrigida pela nutação e a precessão.</li>
+            <li>Calcular a longitude verdadeira do nó da lua corrigida pela nutação e a precessão.</li>
+            <li>Calcular o tempo sideral médio local.</li>
+            <li>Calcular o tempo sideral verdadeiro local corrigido pela longitude.</li>
+            <li>Converter o tempo sideral verdadeiro local para graus.</li>
+          </ol>
+        </li>
+        <li>Calcular a posição dos planetas (Sol, Lua, Mercúrio, Vênus, Marte, Júpiter e Saturno) na eclíptica para o
+          número juliano especificado.
+          <ol>
+            <li>Calcular a anomalia média para cada planeta.</li>
+            <li>Calcular a correção da anomalia média para cada planeta.</li>
+            <li>Calcular a anomalia verdadeira para cada planeta.</li>
+            <li>Calcular a longitude da ascensão reta para cada planeta.</li>
+            <li>Calcular a longitude da eclíptica para cada planeta.</li>
+            <li>Calcular a longitude da eclíptica corrigida para cada planeta.</li>
+            <li>Calcular a latitude da eclíptica para cada planeta.</li>
+            <li>Calcular a distância do planeta ao Sol.</li>
+            <li>Calcular a excentricidade da órbita do planeta.</li>
+            <li>Calcular a longitude verdadeira para cada planeta.</li>
+            <li>Calcular a latitude verdadeira para cada planeta.</li>
+            <li>Calcular a posição do nó ascendente da órbita do planeta.</li>
+            <li>Calcular a longitude corrigida para cada planeta.</li>
+          </ol>
+        </li>
+        <li>Converter as coordenadas eclípticas dos planetas para coordenadas equatoriais.
+          <ol>
+            <li>Calcular a obliquidade da eclíptica para a data e hora especificadas.</li>
+            <li>Calcular o ângulo de longitude eclíptica para o planeta.</li>
+            <li>Calcular a latitude eclíptica para o planeta.</li>
+            <li>Calcular a ascensão reta e declinação para o planeta usando as fórmulas abaixo:
+              <ol>
+                <li>a. Cálculo da ascensão reta:
+
+                  i. Calcular o ângulo de nutação da eclíptica e a longitude média do Sol para a data e hora
+                  especificadas.
+                  ii. Calcular o comprimento médio do Sol para a data e hora especificadas.
+                  iii. Calcular a abertura da eclíptica para a data e hora especificadas.
+                  iv. Calcular a correção de aberração para a data e hora especificadas.
+                  v. Calcular a longitude verdadeira do Sol para a data e hora especificadas.
+                  vi. Calcular a correção de paralaxe para a data e hora especificadas.
+                  vii. Calcular a longitude verdadeira do planeta para a data e hora especificadas.
+                  viii. Calcular o ângulo horário para a localização especificada.
+                  ix. Calcular a ascensão reta do planeta.</li>
+                <li>
+                  b. Cálculo da declinação:
+
+                  i. Calcular a obliquidade da eclíptica para a data e hora especificadas.
+                  ii. Calcular a latitude eclíptica do planeta.
+                  iii. Calcular a longitude verdadeira do planeta para a data e hora especificadas.
+                  iv. Calcular a ascensão reta do planeta.
+                  v. Calcular a declinação do planeta
+                </li>
+              </ol>
+            </li>
+            <li>Retornar as coordenadas equatoriais (ascensão reta e declinação) calculadas para o planeta.</li>
+          </ol>
+        </li>
+        <li>Calcular a ascensão reta e declinação para cada planeta.
+          <ol>
+            <li>Converter a posição do planeta da eclíptica para coordenadas equatoriais: Isso envolve a conversão das
+              coordenadas eclípticas do planeta (longitude e latitude) em coordenadas equatoriais (ascensão reta e
+              declinação). Existem fórmulas matemáticas específicas que podem ser usadas para realizar essa conversão.
+            </li>
+            <li>Calcular o ângulo horário local para o planeta: O ângulo horário local é o ângulo medido ao longo do
+              equador celestial a partir do meridiano local até o ponto onde o planeta cruza o equador celestial. Isso
+              pode ser calculado a partir da longitude geográfica do local, do tempo sideral verdadeiro e da ascensão
+              reta do planeta.</li>
+            <li>Calcular a ascensão reta do planeta somando o ângulo horário local ao tempo sideral verdadeiro e
+              convertendo para horas, minutos e segundos: A ascensão reta é a coordenada angular do planeta medida ao
+              longo do equador celestial a partir do ponto vernal até o ponto onde o planeta cruza o equador celestial.
+              Para calcular a ascensão reta, é preciso somar o ângulo horário local ao tempo sideral verdadeiro e
+              converter para horas, minutos e segundos.</li>
+            <li>Calcular a declinação do planeta a partir da latitude geográfica e da latitude eclíptica do planeta: A
+              declinação é a coordenada angular do planeta medida a partir do equador celestial até o ponto onde o
+              planeta cruza o equador celestial. A declinação pode ser calculada a partir da latitude geográfica do
+              local e da latitude eclíptica do planeta, usando fórmulas matemáticas específicas.</li>
+          </ol>
+        </li>
+        <li>Calcular a longitude celestial para cada planeta.
+          <ol>
+            <li>Converter a ascensão reta do planeta para graus.</li>
+            <li>Adicionar a correção de longitude para o número juliano específico, para levar em conta a precessão.
+            </li>
+            <li>Subtrair o tempo sideral verdadeiro, convertido em graus, da longitude calculada na etapa anterior.</li>
+            <li>Adicionar 360 graus, se o resultado da etapa anterior for negativo.</li>
+            <li>Retornar o resultado, que é a longitude celestial do planeta, medida em graus.</li>
+          </ol>
+        </li>
+        <li>Calcular a casa astrológica para cada planeta.
+          <ol>
+            <li>Calcular o ângulo do ascendente, que é a interseção entre o horizonte oriental e a eclíptica no momento
+              e local especificados.</li>
+            <li>Dividir a eclíptica em doze seções iguais de 30 graus cada, começando do ponto de interseção do equador
+              celeste com a eclíptica que contém o ascendente.</li>
+            <li>Determinar qual seção da eclíptica contém cada planeta.</li>
+            <li>Atribuir a cada planeta a casa astrológica correspondente à seção da eclíptica em que está localizado.
+            </li>
+            Existem várias maneiras de determinar a casa astrológica de cada planeta, mas a técnica mais comum é a
+            Placidus, que é baseada na divisão da eclíptica em doze casas iguais de acordo com o ascendente. Outras
+            técnicas incluem Koch, Regiomontanus, Campanus, entre outras.
+          </ol>
+        </li>
+        <li>Calcular o ângulo entre o ascendente e a posição de cada planeta.
+          <ol>
+            <li>Calcular o ângulo do ascendente em relação ao início da eclíptica.</li>
+            <li>Calcular a posição do planeta na eclíptica.</li>
+            <li>Calcular a posição do ascendente na eclíptica para o mesmo momento.</li>
+            <li>Calcular o ângulo entre a posição do planeta e a posição do ascendente.</li>
+            <li>Converter o ângulo em graus para um aspecto astrológico (sextil, quadratura, trígono, etc.).</li>
+            Essas etapas são realizadas para cada planeta, com o ascendente sendo usado como referência. O cálculo
+            do ascendente, por sua vez, envolve a determinação do signo ascendente, que é baseado na hora do dia e na
+            latitude do local. O cálculo preciso do ângulo entre o ascendente e a posição do planeta é fundamental
+            para a interpretação astrológica, uma vez que os aspectos podem indicar diferentes influências e
+            tendências na vida da pessoa.
+          </ol>
+        </li>
+        <li>Calcular o ponto médio entre cada planeta e o ascendente.
+          <ol>
+            <li>Calcular a posição do ascendente para a data e hora especificadas.</li>
+            <li>Calcular o ponto médio entre cada planeta e o ascendente, levando em conta suas posições na esfera
+              celeste.</li>
+            <li>Calcular o ângulo entre cada planeta e o ponto médio correspondente, levando em conta as suas posições
+              na esfera celeste.</li>
+            <li>Retornar os resultados para cada planeta e seu respectivo ponto médio.</li>
+          </ol>
+        </li>
+        <li>Calcular o ângulo entre cada planeta e o ponto médio correspondente.
+          <ol>
+            <li>Obter as coordenadas equatoriais dos planetas e o ascendente em um determinado momento.</li>
+            <li>Calcular o ponto médio entre cada planeta e o ascendente. Para fazer isso, você pode somar as
+              coordenadas retas e declinações do planeta e do ascendente e dividir por 2.</li>
+            <li>Calcular a ascensão reta e declinação do ponto médio.</li>
+            <li>Calcular o ângulo entre o planeta e o ponto médio usando a fórmula do cosseno inverso (arccos) e a
+              fórmula da diferença entre duas longitudes celestiais.</li>
+            <li>Classificar o ângulo calculado em conjunção (0°), sextil (60°), quadratura (90°), trígono (120°),
+              oposição (180°) ou outros aspectos astrológicos</li>
+            <li>Retornar os resultados para cada planeta e o seu ângulo com o ponto médio correspondente.</li>
+          </ol>
+        </li>
+        <li>Calcular o aspecto astrológico entre cada par de planetas.
+          <ol>
+            <li>Para cada par de planetas, calcule a diferença entre as longitudes celestes dos dois planetas.</li>
+            <li>Encontre o menor valor absoluto dessa diferença. Isso indica a distância angular mais curta entre os
+              dois planetas.</li>
+            <li>Use a tabela de aspectos astrológicos para determinar qual aspecto corresponde à distância angular
+              encontrada no passo 2.</li>
+            <li>Registre o aspecto correspondente e a distância angular entre os dois planetas.</li>
+            <li>Repita os passos 1 a 4 para cada par de planetas.</li>
+            <li>Retorne uma lista de todos os aspectos astrológicos calculados, juntamente com as distâncias angulares
+              correspondentes e os planetas envolvidos.</li>
+          </ol>
+        </li>
+        <li>Retornar os resultados para os planetas, casas e aspectos calculados.</li>
+      </ol>
+    </div>
+  </main>
+
+  <footer>
+    <%- include('./partials/footer'); %>
+  </footer>
+
+</body>
+<%- include('./partials/scripts'); %>
+
+</html>

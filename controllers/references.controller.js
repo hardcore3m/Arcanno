@@ -3,8 +3,8 @@ const books = require('../models/book.model')
 exports.main = (req, res) => {
   try {
 
-    res.status(200).render('reference/main', {
-      title: 'Referências'
+    res.status(200).render('study/study', {
+      title: 'Estudos'
     });
 
   } catch (error) {
@@ -15,7 +15,7 @@ exports.main = (req, res) => {
 exports.list = (req, res) => {
   try {
 
-    res.status(200).render('reference/list', {
+    res.status(200).render('study/list', {
       title: 'Lista de referências',
       books:books
     });
@@ -27,10 +27,6 @@ exports.list = (req, res) => {
 
 exports.categories = (req, res) => {
   try {
-
-
-
-
 
   } catch (error) {
     res.status(400).send(error.message);

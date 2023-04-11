@@ -3,6 +3,7 @@ const referenceController = require('../controllers/references.controller');
 const router = express.Router();
 
 router.get('/', referenceController. main);
-router.get('/list', referenceController.list);
+router.get('/books', referenceController.books);
+router.get('/videos', referenceController.videos);
 
 module.exports = router;

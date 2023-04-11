@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title><%= title %></title>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+
+  <header>
+    <%- include('../partials/navbar'); %>
+  </header>
+
+  <main>
+
+    <div class="accordion accordion-flush">
+
+
+
+      <% books.forEach(function(book) { %>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#flush-collapse<%= book.id %>" aria-expanded="false" aria-controls="flush-collapse<%= book.id %>">
+            <p><%= book.title %></p>
+          </button>
+        </h2>
+        <div id="flush-collapse<%= book.id %>" class="accordion-collapse collapse" data-bs-parent="#accordionFlushBooks">
+          <div class="accordion-body">
+            <table>
+              <th colspan="2"><%= book.title %></th>
+
+              <% if (book.author) { %>
+              <tr>
+                <td>Author</td>
+                <td><%= book.author %></td>
+              </tr>
+              <% } %>
+
+              <% if (book.publisher) { %>
+              <tr>
+                <td>publisher</td>
+                <td><%= book.publisher %></td>
+              </tr>
+              <% } %>
+
+              <% if (book.edition) { %>
+              <tr>
+                <td>edition</td>
+                <td><%= book.edition %></td>
+              </tr>
+              <% } %>
+
+              <% if (book.isbn) { %>
+              <tr>
+                <td>isbn</td>
+                <td><%= book.isbn %></td>
+              </tr>
+              <% } %>
+
+              <% if (book.year) { %>
+              <tr>
+                <td>year</td>
+                <td><%= book.year %></td>
+              </tr>
+              <% } %>
+              <% if (book.link) { %>
+              <tr>
+                <td colspan="2">
+                  <a href="<%= book.link %>" target="_blank">Acessar <i class="fa fa-link" aria-hidden="true"></i></a>
+                </td>
+              </tr>
+              <% } %>
+
+            </table>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+</body>
+<%- include('../partials/scripts'); %>
+
+</html>

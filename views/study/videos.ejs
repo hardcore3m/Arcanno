@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title><%= title %></title>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+
+  <header>
+    <%- include('../partials/navbar'); %>
+  </header>
+
+  <main>
+    <div id="tarology">
+      <h2>Tarologia</h2>
+      <iframe 
+        src="https://www.youtube.com/embed/videoseries?list=PLrWLH0YE9qOkl2xm66o48SPmjXI_0kWdD"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+</body>
+<%- include('../partials/scripts'); %>
+
+</html>

@@ -61,8 +61,11 @@ class Book {
   }
 }
 
-const books = references.map((el,index)=>{
+exports.books = references.map((el,index)=>{
   return new Book(el.data,index);
 })
 
-module.exports = books;
+exports.grouped = references.map((el,index)=>{
+   let book =new Book(el.data,index);
+   return book.getChapters();
+})

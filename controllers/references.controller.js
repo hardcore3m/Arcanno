@@ -12,15 +12,29 @@ exports.main = (req, res) => {
   }
 }
 
-exports.list = (req, res) => {
+exports.books = (req, res) => {
   try {
 
-    res.status(200).render('study/list', {
-      title: 'Lista de referências',
-      books:books
+    res.status(200).render('study/books', {
+      title: 'Livros',
+      books:books.books
     });
 
   } catch (error) {
+    
+    res.status(400).send(error.message);
+  }
+}
+
+exports.videos = (req, res) => {
+  try {
+
+    res.status(200).render('study/videos', {
+      title: 'Vídeos'
+    });
+
+  } catch (error) {
+    
     res.status(400).send(error.message);
   }
 }

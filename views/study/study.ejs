@@ -14,12 +14,65 @@
 
   <main>
     <div>
-      <div class="btn-group" role="group" aria-label="study">
-        <button type="button" class="btn ">Referências</button>
-        <button type="button" class="btn ">Lições</button>
-        <button type="button" class="btn ">Consulta</button>
+      <nav>
+        <ul>
+          <li><a href="#references" class="main-nav-link active">Referências</a></li>
+          <li><a href="#lessons" class="main-nav-link">Lições</a></li>
+          <li><a href="#div3" class="main-nav-link">Consulta</a></li>
+        </ul>
+      </nav>
+
+      <div id="references" class="content active">
+        <ul class="content-list">
+          <li>
+            <a href="#">
+              <img
+                src="https://cdn.discordapp.com/attachments/1091090710574407682/1095319174978490450/a52be7ad-0b8b-4287-8119-67dd563e0606.jpg"
+                alt="">
+              <p>Por Categoria</p>
+            </a>
+          </li>
+          <li>
+            <a href="/study/books">
+              <img
+                src="https://cdn.discordapp.com/attachments/1091090710574407682/1093440394211110962/f57afc76-4c9d-42c8-9345-2484a7764edc.jpg"
+                alt="">
+              <p>Livros</p>
+            </a>
+          </li>
+          <li>
+            <a href="#"><img
+                src="https://cdn.discordapp.com/attachments/1091090710574407682/1095316375263793284/ee3f6416-8ae8-43a5-86b0-55e9260b100e.jpg"
+                alt="">
+              <p>Podcasts</p>
+            </a>
+          </li>
+          <li>
+            <a href="/study/videos">
+              <img
+                src="https://cdn.discordapp.com/attachments/1091090710574407682/1095318280929017877/46a08d1a-5368-48fe-b04f-f5b4db393340.jpg"
+                alt="">
+              <p>Vídeos</p>
+            </a>
+          </li>
+
+        </ul>
       </div>
-      <div id="references"></div>
+
+      <div id="lessons" class="content">
+        <h2>Em construção</h2>
+        <img id="under-construction-img"
+          src="https://cdn.discordapp.com/attachments/1091090710574407682/1095342997194944592/d8d636e9-8dd1-419b-93eb-6611763a45cc.jpg"
+          alt="">
+      </div>
+
+      <div id="div3" class="content">
+        <h2>Em construção</h2>
+        <img id="under-construction-img"
+          src="https://cdn.discordapp.com/attachments/1091090710574407682/1095342997194944592/d8d636e9-8dd1-419b-93eb-6611763a45cc.jpg"
+          alt="">
+      </div>
+
     </div>
   </main>
 
@@ -29,5 +82,25 @@
 
 </body>
 <%- include('../partials/scripts'); %>
+<script>
+  const navLinks = document.querySelectorAll('.main-nav-link');
+  const contents = document.querySelectorAll('.content');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = e.target.getAttribute('href');
+      navLinks.forEach(link => link.classList.remove('active'));
+      link.classList.add('active');
+      contents.forEach(content => {
+        if (content.getAttribute('id') === target.substr(1)) {
+          content.classList.add('active');
+        } else {
+          content.classList.remove('active');
+        }
+      });
+    });
+  });
+</script>
 
 </html>

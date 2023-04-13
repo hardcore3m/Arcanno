@@ -17,11 +17,25 @@ exports.books = (req, res) => {
 
     res.status(200).render('study/books', {
       title: 'Livros',
-      books:books.books
+      books: books.books
     });
 
   } catch (error) {
-    
+
+    res.status(400).send(error.message);
+  }
+}
+
+exports.categories = (req, res) => {
+  try {
+
+    res.status(200).render('study/categories', {
+      title: 'Categorias',
+      categories: books.categories()
+    });
+
+  } catch (error) {
+
     res.status(400).send(error.message);
   }
 }
@@ -34,15 +48,7 @@ exports.videos = (req, res) => {
     });
 
   } catch (error) {
-    
-    res.status(400).send(error.message);
-  }
-}
 
-exports.categories = (req, res) => {
-  try {
-
-  } catch (error) {
     res.status(400).send(error.message);
   }
 }

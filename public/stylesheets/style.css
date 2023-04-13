@@ -169,3 +169,19 @@ h2 {
 iframe {
   width: 100vw;
 }
+@media only screen and (min-width: 1025px) {
+
+  .nav-icon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: stretch;
+    justify-items: stretch;
+  }
+  .nav-icon p{
+    font-size: 2em;
+    margin-left:0.5em ;
+    
+  }
+}

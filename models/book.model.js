@@ -4,9 +4,9 @@ const capitalize = require('../functions/capitalizeText');
 
 
 class Book {
-  constructor(jsonObject,index) {
-    this.id=index;
-    this.chapters=[];
+  constructor(jsonObject, index) {
+    this.id = index;
+    this.chapters = [];
     for (let i = 0; i < jsonObject.length; i++) {
       if (jsonObject[i].item == 'title') {
         this.title = jsonObject[i].reference
@@ -16,17 +16,17 @@ class Book {
         this.publisher = jsonObject[i].reference
       } else if (jsonObject[i].item === 'edition') {
         this.edition = jsonObject[i].reference
-      }else if (jsonObject[i].item === 'ISBN') {
+      } else if (jsonObject[i].item === 'ISBN') {
         this.ISBN = jsonObject[i].reference
-      }else if (jsonObject[i].item === 'year') {
+      } else if (jsonObject[i].item === 'year') {
         this.year = jsonObject[i].reference
-      }else if (jsonObject[i].item === 'link') {
+      } else if (jsonObject[i].item === 'link') {
         this.link = jsonObject[i].reference
-      }else {
+      } else {
         this.chapters.push(jsonObject[i]);
       }
     }
-   
+
   }
 
   addChapter(chapter) {
@@ -55,17 +55,66 @@ class Book {
     return this.chapters.length;
   }
 
-  getGroupedItems(){
+  getGroupedItems() {
     let items = groupItems(this.getChapters())
-    return items;
+    const result = {};
+
+    items.forEach(obj => {
+      const [first, second = "geral"] = obj.reference.split("-");
+
+      if (!result[first]) {
+        result[first] = {};
+      }
+
+      if (!result[first][second]) {
+        result[first][second] = [];
+      }
+
+      result[first][second].push(obj);
+    });
+
+    return result;
   }
 }
 
-exports.books = references.map((el,index)=>{
-  return new Book(el.data,index);
+exports.books = references.map((el, index) => {
+  return new Book(el.data, index);
 })
 
-exports.grouped = references.map((el,index)=>{
-   let book =new Book(el.data,index);
-   return book.getChapters();
+exports.grouped = references.map((el, index) => {
+  let book = new Book(el.data, index);
+  return book.getChapters();
 })
+
+exports.categories = function () {
+  const books = references.map((el, index) => {
+    return new Book(el.data, index);
+  })
+
+  const result = [];
+
+  books.forEach(obj => {
+    obj.chapters.forEach(str => {
+      const [name, subject] = str.reference.split("-");
+
+      let obj = result.find(item => item.name === name);
+
+      if (!obj) {
+        obj = {
+          name,
+          subjects: []
+        };
+        result.push(obj);
+      }
+
+      if (subject && !obj.subjects.includes(subject)) {
+        obj.subjects.push(subject);
+      } else if (!subject && !obj.subjects.includes("General")) {
+        obj.subjects.push("General");
+      }
+    });
+
+    
+  });
+  return result;
+}

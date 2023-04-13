@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title><%= title %></title>
+  <%- include('../partials/head'); %>
+</head>
+
+<body>
+
+  <header>
+    <%- include('../partials/navbar'); %>
+  </header>
+
+  <main>
+
+    <% categories.forEach(function(category) { %>
+    <div class="content active">
+      <h3><%= category.name %></h3>
+      <ul class="content-list">
+      <% category.subjects.forEach(function(subject) { %>
+        <li> <%= subject %> </li>
+      <% }); %>
+      </ul>
+    </div>
+    <% }); %>
+
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+</body>
+<%- include('../partials/scripts'); %>
+<script>
+  const navLinks = document.querySelectorAll('.main-nav-link');
+  const contents = document.querySelectorAll('.content');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = e.target.getAttribute('href');
+      navLinks.forEach(link => link.classList.remove('active'));
+      link.classList.add('active');
+      contents.forEach(content => {
+        if (content.getAttribute('id') === target.substr(1)) {
+          content.classList.add('active');
+        } else {
+          content.classList.remove('active');
+        }
+      });
+    });
+  });
+</script>
+
+</html>

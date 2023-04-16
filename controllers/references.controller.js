@@ -1,5 +1,5 @@
 const books = require('../models/book.model')
-
+const typos = require('../models/typo.model')
 exports.main = (req, res) => {
   try {
 
@@ -45,6 +45,19 @@ exports.videos = (req, res) => {
 
     res.status(200).render('study/videos', {
       title: 'Vídeos'
+    });
+
+  } catch (error) {
+
+    res.status(400).send(error.message);
+  }
+}
+
+exports.typos = (req,res)=>{
+  try {
+        
+    res.status(200).render('study/typo', {
+      title: 'Referência tipográfica',typos:typos.list
     });
 
   } catch (error) {

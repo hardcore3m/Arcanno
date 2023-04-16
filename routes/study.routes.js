@@ -6,5 +6,6 @@ router.get('/', referenceController. main);
 router.get('/books', referenceController.books);
 router.get('/categories', referenceController.categories);
 router.get('/videos', referenceController.videos);
+router.get('/typos', referenceController.typos);
 
 module.exports = router;

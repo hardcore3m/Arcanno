@@ -17,10 +17,21 @@
     <% categories.forEach(function(category) { %>
     <div class="content active">
       <h3><%= category.name %></h3>
+      <div class="carousel">
+        <div class="carousel-items">
+          <% category.subjects.forEach(function(subject) { %>
+          <div class="carousel-item"> <%= subject %> </div>
+          <% }); %>
+        </div>
+        <div class="carousel-buttons">
+          <button class="carousel-button prev">&#10094;</button>
+          <button class="carousel-button next">&#10095;</button>
+        </div>
+      </div>
+
+      <!-- A -->
       <ul class="content-list">
-      <% category.subjects.forEach(function(subject) { %>
-        <li> <%= subject %> </li>
-      <% }); %>
+
       </ul>
     </div>
     <% }); %>

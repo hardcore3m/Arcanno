@@ -1,7 +1,8 @@
-const references = require('../functions/readReferences')
+const jsonData = require('../functions/readJsonFiles')
 const groupItems = require('../functions/groupItemsByReference');
 const capitalize = require('../functions/capitalizeText');
 
+const references = jsonData.books;
 
 class Book {
   constructor(jsonObject, index) {

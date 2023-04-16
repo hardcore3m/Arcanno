@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title><%= title %></title>
+  <%- include('../partials/head'); %>
+</head>
+<style id="typo-style">
+  #characters-list>section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   
+  }
+
+  .character-card {
+    margin: 0.5em;
+    background-color: whitesmoke;
+    color: #111;
+    width: 100%;
+    text-align: center;
+    padding: 0.3em;
+    border: 2px solid goldenrod;
+    border-radius: 10px;
+  }
+  @media only screen and (min-width: 1025px) {
+    .character-card{
+      width: 18%;
+    }
+  }
+</style>
+
+<body>
+
+  <header>
+    <%- include('../partials/navbar'); %>
+  </header>
+
+  <main>
+    <div id="select-container"></div>
+    <div id="characters-list"></div>
+
+  </main>
+
+  <footer>
+    <%- include('../partials/footer'); %>
+  </footer>
+
+</body>
+<%- include('../partials/scripts'); %>
+<script>
+  const uppercaseLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+    'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+  ];
+  const lowercaseLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+    's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+  ];
+  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '{', '}', '[', ']', '|', ':',
+    ';', '<', '>', '?', '/'
+  ];
+  const ejsObject = '<%- JSON.stringify(typos) %>';
+  const typoList = JSON.parse(ejsObject)
+  const selectContainer = document.getElementById("select-container");
+  const charactersList = document.getElementById('characters-list');
+  const selectElement = document.createElement("select");
+  selectElement.setAttribute('id', 'typo-select');
+  selectElement.innerHTML='<option value="" disabled selected>Escolha uma fonte</option>'
+  const stylesheet = document.getElementById('typo-style');
+
+
+  typoList.forEach((typo) => {
+    stylesheet.textContent += `
+      @font-face {
+      font-family: ${typo.class_name};
+      src: url('/fonts/symbols/${typo.file}');
+    }
+    `
+    const optionElement = document.createElement("option");
+    optionElement.value = typo.class_name;
+    optionElement.text = `${typo.title} | ${typo.context}`;
+    selectElement.appendChild(optionElement);
+  });
+
+  console.log(stylesheet.textContent);
+
+  selectContainer.appendChild(selectElement);
+
+  selectElement.addEventListener('change', () => {
+
+    const selectedTypo = typoList.find((typo) => typo.class_name === selectElement.value);
+
+    charactersList.innerHTML = '';
+
+
+    const title = document.createElement('h2');
+    title.textContent = selectedTypo.title;
+    charactersList.appendChild(title);
+
+
+    const context = document.createElement('p');
+    context.textContent = selectedTypo.context;
+    charactersList.appendChild(context);
+
+    selectedTypo.lowercase ? charactersList.appendChild(createCharacterCards(lowercaseLetters, selectedTypo.class_name)) :
+      '';
+    selectedTypo.uppercase ? charactersList.appendChild(createCharacterCards(uppercaseLetters, selectedTypo.class_name)) :
+      '';
+    selectedTypo.numbers ? charactersList.appendChild(createCharacterCards(numbers, selectedTypo.class_name)) : '';
+    selectedTypo.symbols ? charactersList.appendChild(createCharacterCards(symbols, selectedTypo.class_name)) : '';
+  });
+
+  function createCharacterCards(characters, fontFamily) {
+    const section = document.createElement("section");
+    characters.forEach((char) => {
+      const card = document.createElement("div");
+      card.className = "character-card";
+      const char1 = document.createElement("div");
+      char1.textContent = char;
+      char1.style.fontFamily = fontFamily;
+      char1.style.fontSize = '70px';
+      const char2 = document.createElement("div");
+      char2.textContent = char;
+      char2.style.fontWeight = '700';
+      card.appendChild(char1);
+      card.appendChild(char2);
+      section.appendChild(card);
+    });
+    return section;
+  }
+</script>
+
+</html>

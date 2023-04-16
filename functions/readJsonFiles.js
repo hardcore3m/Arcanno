@@ -1,7 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const dirPath = './json'
+const books = './json/books'
+const typos = './json/typos'
 
 
 function readJsonFilesInDir(dirPath) {
@@ -23,4 +24,6 @@ function readJsonFilesInDir(dirPath) {
 
   return result;
 }
-module.exports = readJsonFilesInDir(dirPath);
+
+exports.books = readJsonFilesInDir(books);
+exports.typos = readJsonFilesInDir(typos);

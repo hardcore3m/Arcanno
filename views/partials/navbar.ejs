@@ -1,3 +1,65 @@
-  <img src="https://cdn.discordapp.com/attachments/1091090710574407682/1093670789108224120/3c94dac6-2186-4173-a8b2-2665a23b0740.jpg" alt="">
+<div class="d-flex flex-row align-items-center">
+  <img src="/images/logo.png" alt="">
   <h1><%= title %></h1>
-  <img src="https://cdn.discordapp.com/attachments/1091090710574407682/1093673204775665716/3a20c7a1-3c6b-424c-bf1d-665588d852ee.jpg" alt="">
+</div>
+<a class="btn" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu">
+  <i class="fa-solid fa-gear" style="color: #daa520;"></i>
+</a>
+
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasMenuLabel">Configurações</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <section>
+      <div class="circle-container">
+        <img src="/images/profile_sample.jpg" alt="">
+      </div>
+      <h6>Nome do usuário <span>Level 1</span></h6>
+    </section>
+    <hr>
+    <section>
+      <i class="fa-regular fa-address-card" style="color: #daa520;"> </i> <strong>Perfil</strong>
+    </section>
+    <section>
+      <i class="fa-solid fa-hat-wizard" style="color: #daa520;"></i> <strong>Opções de leitura</strong>
+      <div>
+        <h4>Arcanos Invertidos</h4>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inverted-cards" id="inverted-cards-no" value="false" checked>
+          <label class="form-check-label" for="inverted-cards-no">Não</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inverted-cards" id="inverted-cards-yes" value="true">
+          <label class="form-check-label" for="inverted-cards-yes">Sim</label>
+        </div>
+      </div>
+      <div>
+        <h4>Leitura diária</h4>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="daily-readings" id="one-card" value="1">
+          <label class="form-check-label" for="one-card">1 Carta</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="daily-readings" id="three-cards" value="3">
+          <label class="form-check-label" for="three-cards">3 Cartas</label>
+        </div>
+      </div>
+      <div>
+        <h4>Interpretação</h4>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="interp-style" id="interp-style-general" value="general">
+          <label class="form-check-label" for="one-card">Visão Geral</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="interp-style" id="interp-style-directed" value="directed">
+          <label class="form-check-label" for="three-cards">Direcionada</label>
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+</div>

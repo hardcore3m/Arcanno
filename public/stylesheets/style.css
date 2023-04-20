@@ -1,3 +1,4 @@
+/* Importing fonts */
 @font-face {
   font-family: Beholder;
   src: url('/fonts/beholder.ttf');
@@ -8,23 +9,8 @@
   src: url('/fonts/prince_valiant.ttf');
 }
 
-@keyframes move-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-220px);
-  }
-}
 
-@keyframes move-right {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(220px);
-  }
-}
+/* Page Elements */
 
 body {
   background-color: #2D033B;
@@ -44,12 +30,11 @@ header, footer {
   width: 100%;
   align-items: center;
   align-content: center;
-  color: gold;
 }
 
 header a, footer a {
   text-decoration: none;
-  color: gold;
+  color: goldenrod;
 }
 
 header img, footer img {
@@ -63,7 +48,7 @@ header p, footer p {
 
 header {
   justify-content: space-between;
-  border-bottom: 2px gold solid;
+  border-bottom: 2px goldenrod solid;
   background-color: #2D033B;
 }
 
@@ -73,14 +58,53 @@ footer {
   bottom: 0;
   background-color: #2D033B;
   padding: 1vh;
-  border-top: 2px gold solid;
+  border-top: 2px goldenrod solid;
 }
 
-.nav-icon {
+
+/* Titles */
+h1, h2, h3, h4, h5, h6 {
+  color: goldenrod;
+}
+
+h1 {
+  font: bold 2em 'Beholder', Helvetica, Arial, sans-serif;
   text-align: center;
+  
 }
 
-/* Main pages */
+h2 {
+  font: bold 1.8em 'Valiant', Helvetica, Arial, sans-serif;
+  text-align: center;
+  
+}
+h4{
+  font: bold 1.2em Helvetica, Arial, sans-serif;
+}
+
+
+
+
+/* Settings menu */
+.offcanvas-header {
+  background-color: #110316;
+  color: goldenrod;
+}
+
+.offcanvas-body {
+  background-color: #2D033B;
+  color: goldenrod;
+}
+
+.offcanvas-body span {
+  background: goldenrod;
+  color: #110316;
+  border-radius: 3px;
+  padding: 0 0.5em;
+}
+
+
+/* Mainframes */
 
 main {
   width: 100vw;
@@ -89,10 +113,10 @@ main {
   align-items: center;
   align-content: center;
   background-color: #110316;
-  color: goldenrod;
+  color: whitesmoke;
 }
 
-nav ul {
+main nav ul {
   list-style: none;
   margin: 0;
 
@@ -105,16 +129,16 @@ nav ul {
   font-weight: 600;
 }
 
-nav li {
+main nav li {
   margin: 0 1rem;
 }
 
-nav a {
+main nav a {
   text-decoration: none;
   color: goldenrod;
 }
 
-nav a.active {
+main nav a.active {
   font-weight: bold;
   border-bottom: goldenrod 1.5px solid;
 }
@@ -166,27 +190,12 @@ nav a.active {
 }
 
 
-/* Titles */
-h1 {
-  font: bold 2em 'Beholder', Helvetica, Arial, sans-serif;
-  text-align: center;
-}
-
-h2 {
-  font: bold 1.8em 'Valiant', Helvetica, Arial, sans-serif;
-  text-align: center;
-}
-
-/* Buttons */
-.btn-group {
-  font: bold 8px 'Valiant', Helvetica, Arial, sans-serif;
-}
-
 /* Sections */
 
 #under-construction-img {
   height: 50vh;
 }
+
 
 /* IFrame */
 
@@ -194,61 +203,43 @@ iframe {
   width: 100%;
 }
 
-.center {
+
+/* Assets */
+
+hr {
+  margin: 0;
+  border-top: goldenrod 2px solid;
+  margin-top: 1em;
+}
+
+.btn-group {
+  font: bold 8px 'Valiant', Helvetica, Arial, sans-serif;
+}
+
+.nav-icon {
   text-align: center;
 }
 
-/* Carousel */
-.carousel {
+.circle-container {
+  width: 50%;
+  padding-top: 50%;
   position: relative;
-  width: 100%;
+  border-radius: 50%;
   overflow: hidden;
+  border: goldenrod 2.5px solid;
 }
 
-.carousel-items {
-  display: flex;
-  width: 300%;
-  transition: transform 0.4s ease-in-out;
-}
-
-.carousel-item {
-  flex: 1 0 100%;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  color: #fff;
-}
-
-.carousel-button {
+.circle-container img {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
-}
-
-.prev {
+  top: 0;
   left: 0;
-}
-
-.next {
-  right: 0;
-}
-
-
-.carousel.is-moving-left .carousel-items {
-  transform: translateX(-100%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 
-.carousel.is-moving-right .carousel-items {
-  transform: translateX(-200%);
-}
+/* Responsivity */
 
 @media only screen and (min-width: 1025px) {
   body {
@@ -270,8 +261,8 @@ iframe {
     margin-left: 0.5em;
 
   }
-  header, footer, main{
+
+  header, footer, main {
     width: 90vw;
   }
 }
-

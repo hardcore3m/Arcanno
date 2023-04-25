@@ -1,0 +1,10 @@
+.daily-card{
+    margin: 10px 0;
+    border: 3px goldenrod solid;
+    width: 25%;
+    aspect-ratio: 2/3;
+    border-radius: 5px;
+}
+.daily-card img{
+    width: 100%;
+}

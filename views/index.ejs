@@ -4,9 +4,27 @@
 <head>
   <title><%= title %></title>
   <%- include('./partials/head'); %>
-  
+
 </head>
 <%- include('./partials/scripts'); %>
+<link rel="stylesheet" href="/stylesheets/dailyReading.css">
+<script type="module">
+  import handleCookie from '/javascripts/cookieHandler.mjs';
+  import shuffleReading from '/javascripts/shuffleReading.mjs'
+  import dailyReading from '/javascripts/dailyReading.mjs'
+  
+  const inverted_cards = new handleCookie("inverted-cards",true,999);
+  inverted_cards.handleInput("inverted-cards");
+  const daily_readings = new handleCookie("daily-readings","3",999);
+  daily_readings.handleInput("daily-readings");
+  const interp_style = new handleCookie("interp-style","directed",999);
+  interp_style.handleInput("interp-style");
+
+  let lecture = shuffleReading(parseInt(daily_readings.getCookieValue()),inverted_cards.getCookieValue());
+  dailyReading(lecture);
+  
+</script>
+
 <body onload="initPage()">
 
   <header>
@@ -20,6 +38,12 @@
     <div id="ephemerid">
 
     </div>
+    <h2>Leitura diária</h2>
+    <div id="daily-lecture" class="d-flex justify-content-around">
+      
+    </div>
+    <div id="card-interpretation"></div>
+    
   </main>
 
   <footer>

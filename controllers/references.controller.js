@@ -1,8 +1,9 @@
 const books = require('../models/book.model')
 const typos = require('../models/typo.model')
+const models = require('../models/models');
 exports.main = (req, res) => {
   try {
-
+    console.log(models.planet.list);
     res.status(200).render('study/study', {
       title: 'Estudos'
     });

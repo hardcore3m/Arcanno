@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title><%= title %></title>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+
+    <header>
+        <%- include('../partials/navbar'); %>
+    </header>
+
+    <main>
+        <div class="text-center">
+            <img class="read-page-img" src="/images/planets/<%= planet.id %>.png" alt="">
+            <h2><%= title %></h2>
+            <h4><%= planet.key.pt %></h4>
+        </div>
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+            <% planet.topics.pt.forEach(function(topic){ %>
+            <span class="badge key-span"><%=topic %></span>
+            <% }); %>
+        </div>
+        <hr>
+        <h3 class="text-center">Qualidade</h3>
+        <p class="text-center"><%= planet.quality.pt %></p>
+        <hr>
+        <h3 class="text-center">Dignidades</h3>
+        <div class="d-flex flex-row text-center flex-wrap">
+            <div class="col-12">
+                <h4>Domicílio</h4>
+                <div class="d-flex justify-content-center align-content-center">
+                    <% planet.domicile.forEach(function(item){ %>
+                    <div class="card text-center">
+                        <img class="card-img-top" src="/images/signs/<%=item %>.png" alt="<%=item %>">
+                        <div class="card-body">
+                            <p class="card-text text-center"><%= item %></p>
+                        </div>
+                    </div>
+
+                    <% }); %>
+                </div>
+            </div>
+            <div class="col-6">
+                <h4>Exaltação</h4>
+                <div class="d-flex justify-content-center align-content-center">
+                    <% planet.exaltation.forEach(function(item){ %>
+                    <div class="card text-center">
+                        <img class="card-img-top" src="/images/signs/<%=item %>.png" alt="<%=item %>">
+                        <div class="card-body">
+                            <p class="card-text text-center"><%= item %></p>
+                        </div>
+                    </div>
+
+                    <% }); %>
+                </div>
+            </div>
+            <div class="col-6">
+                <h4>Queda</h4>
+                <div class="d-flex justify-content-center align-content-center">
+                    <% planet.fall.forEach(function(item){ %>
+                    <div class="card text-center">
+                        <img class="card-img-top" src="/images/signs/<%=item %>.png" alt="<%=item %>">
+                        <div class="card-body">
+                            <p class="card-text text-center"><%= item %></p>
+                        </div>
+                    </div>
+
+                    <% }); %>
+                </div>
+            </div>
+            <div class="col-12">
+                <h4>Exílio</h4>
+                <div class="d-flex justify-content-center align-content-center">
+                    <% planet.exile.forEach(function(item){ %>
+                    <div class="card text-center">
+                        <img class="card-img-top" src="/images/signs/<%=item %>.png" alt="<%=item %>">
+                        <div class="card-body">
+                            <p class="card-text text-center"><%= item %></p>
+                        </div>
+                    </div>
+
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h3 class="text-center">Descrição</h3>
+        <p class="text-justified"><%= planet.description.pt %></p>
+        <hr>
+        <h3 class="text-center">Características</h3>
+        <p class="text-justified"><%= planet.characteristics.pt %></p>
+        <hr>
+        <h3 class="text-center">Intrepretação</h3>
+        <p class="text-justified"><%= planet.interpretation.pt %></p>
+        <hr>
+        <h3 class="text-center">Posição</h3>
+        <p class="text-justified"><%= planet.positioning.pt %></p>
+        <hr>
+
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+<%- include('../partials/scripts'); %>
+
+</html>

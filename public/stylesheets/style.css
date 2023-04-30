@@ -9,6 +9,10 @@
   src: url('/fonts/prince_valiant.ttf');
 }
 
+@font-face {
+  font-family: AstroDot;
+  src: url('/fonts/astro_dot_basic.ttf');
+}
 
 /* Page Elements */
 
@@ -62,6 +66,7 @@ footer {
 }
 
 
+
 /* Titles */
 h1, h2, h3, h4, h5, h6 {
   color: goldenrod;
@@ -70,15 +75,16 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font: bold 2em 'Beholder', Helvetica, Arial, sans-serif;
   text-align: center;
-  
+
 }
 
 h2 {
   font: bold 1.8em 'Valiant', Helvetica, Arial, sans-serif;
   text-align: center;
-  
+
 }
-h4{
+
+h4 {
   font: bold 1.2em Helvetica, Arial, sans-serif;
 }
 
@@ -94,10 +100,17 @@ h4{
 }
 
 .offcanvas-body span {
-  background: goldenrod;
+  background: rgb(243, 193, 68);
   color: #110316;
   border-radius: 3px;
   padding: 0 0.5em;
+}
+
+.key-span{
+  background-color: #8800bb;
+  padding: 0.2em 0.4em;
+  margin: 0.2em;
+  border-radius: 5px;
 }
 
 
@@ -185,8 +198,33 @@ main nav a.active {
   font-size: 1.8em;
   margin-bottom: 0;
 }
+.text-justified{
+  text-align: justify;
+}
 
+.text-color-1{
+color: goldenrod;
+}
 
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  max-width: 100%; 
+}
+.image-container img {
+  flex: 1 1 20%; 
+  max-width: 100%; 
+}
+.card{
+  background: none;
+}
+.card .card-text{
+  font-size: 0.7em;
+}
+.card .card-img-top{
+  width: 70px;
+}
 /* Sections */
 
 #under-construction-img {
@@ -202,6 +240,9 @@ iframe {
 
 
 /* Assets */
+a {
+  text-decoration: none;
+}
 
 hr {
   margin: 0;
@@ -235,11 +276,21 @@ hr {
   object-fit: cover;
 }
 
-#clock{
+#clock {
   margin-top: 0.5em;
   border: goldenrod 2.5px solid;
   background-color: #8800bb;
 }
+
+.astro_planet {
+  font-family: AstroDot;
+  font-size: 2.5em;
+  margin:0 0.2em;
+}
+.read-page-img{
+width: 5em;
+}
+
 /* Responsivity */
 
 @media only screen and (min-width: 1025px) {

@@ -3,6 +3,7 @@ const path = require('path');
 
 const books = './json/books'
 const typos = './json/typos'
+const planets = './json/planets'
 
 
 function readJsonFilesInDir(dirPath) {
@@ -27,3 +28,4 @@ function readJsonFilesInDir(dirPath) {
 
 exports.books = readJsonFilesInDir(books);
 exports.typos = readJsonFilesInDir(typos);
+exports.planets = readJsonFilesInDir(planets);
